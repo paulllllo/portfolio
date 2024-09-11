@@ -1,0 +1,47 @@
+extends ../base.pug
+
+block variables
+    - var template = 'details'
+
+block content
+    .details
+        .nav_bar
+            .nav_switch
+
+            span.details_name_tag="Odigbo Kelechi"
+
+            .details_status_box
+                p.details_status_text="Available to work since"
+                    span="15th September"
+                .details_profile_media
+                    img.details_profile_media_image(alt=placeholder, data-src=placeholder)
+
+
+        .details_wrapper
+            .details_content
+                h2.details_content_title="Floema"
+
+                .details_content_media
+                    img.details_content_media_image(alt=placeholder, src=placeholder)
+
+                p.details_desc="When i’m not working on amazing sites, I love playing basketball, watching football or playing chess(I’m really good at watching football)"
+
+            .details_details
+                each detail in placeholder
+                    .details_detail
+                        span.details_detail_title="tools"
+
+                        p.details_detail_desc="GSAP, WebGL, PugJS, ExpressJS, SASS"
+
+        .footer
+            .footer_content
+                h3.footer_content_title
+
+                p.footer_content_desc
+
+            .footer_socials
+                each social in placeholder
+                    .footer_social
+                        .footer_social_icon
+                        
+                        span="placeholder"

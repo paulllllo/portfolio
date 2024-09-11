@@ -1,0 +1,53 @@
+extends ../base.pug
+
+block variables
+    - var template = 'about'
+
+block content
+    .about
+        .nav_bar
+            .nav_switch
+
+            span.about_name_tag="Odigbo Kelechi"
+
+            .about_status_box
+                p.about_status_text="Available to work since"
+                    span="15th September"
+                .about_profile_media
+                    img.about_profile_media_image(alt=placeholder, data-src=placeholder)
+
+        .about_wrapper
+            .about_main
+                .about_main_content
+                    .about_main_content_media
+                        img.about_main_content_media_image(alt=placeholder, src=placeholder)
+
+                    h2.about_main_content_name="Odigbo Kelechi Paul"
+                    
+                    p.about_main_content_bio="I found the secret recipe to creating an awesome website that embodies the essence  of  your brand"
+
+                .about_main_button
+                    span="Walk with me"
+
+            .about_roadmap
+                .about_roadmap_steps
+
+                each info in placeholder
+                    .about_roadmap_info
+                        .about_roadmap_badge
+
+                        p.about_roadmap_info_text
+        
+
+        .footer
+            .footer_content
+                h3.footer_content_title
+
+                p.footer_content_desc
+
+            .footer_socials
+                each social in placeholder
+                    .footer_social
+                        .footer_social_icon
+                        
+                        span="placeholder"
