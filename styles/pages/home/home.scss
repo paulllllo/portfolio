@@ -1,0 +1,11 @@
+.home {
+    @extend %page;
+
+    display: flex;
+    // background: $color-contessa;
+    // color: $color-white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
