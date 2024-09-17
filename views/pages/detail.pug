@@ -8,40 +8,41 @@ block content
         .nav_bar
             .nav_switch
 
-            span.details_name_tag="Odigbo Kelechi"
+            span.home_name_tag=navigation.data.name
 
-            .details_status_box
-                p.details_status_text="Available to work since"
+            .nav_status_box
+                p.nav_status_text=`${navigation.data.availability ? 'Available to work since' : 'Available to work from'}`
                     span="15th September"
-                .details_profile_media
-                    img.details_profile_media_image(alt=placeholder, data-src=placeholder)
+                .nav_profile_media
+                    img.nav_profile_media_image(alt=profile.data.profile_picture.alt, data-src=profile.data.profile_picture.url)
 
 
         .details_wrapper
             .details_content
-                h2.details_content_title="Floema"
+                h2.details_content_title=project.data.title
 
                 .details_content_media
-                    img.details_content_media_image(alt=placeholder, src=placeholder)
+                    img.details_content_media_image(alt=project.data.image.alt, src=project.data.image.url)
 
-                p.details_desc="When i’m not working on amazing sites, I love playing basketball, watching football or playing chess(I’m really good at watching football)"
+                p.details_desc=project.data.description
 
             .details_details
-                each detail in placeholder
-                    .details_detail
-                        span.details_detail_title="tools"
+                each detail in project.data.details
+                    - for (const key in detail)
+                        .details_detail
+                            span.details_detail_title=key
 
-                        p.details_detail_desc="GSAP, WebGL, PugJS, ExpressJS, SASS"
+                            p.details_detail_desc=detail[key]
 
         .footer
             .footer_content
-                h3.footer_content_title
+                h3.footer_content_title="Let's talk"
 
-                p.footer_content_desc
+                p.footer_content_desc="I love to create impactful experiences which your users would love"
 
             .footer_socials
-                each social in placeholder
+                - for (const social in socials.data)
                     .footer_social
                         .footer_social_icon
                         
-                        span="placeholder"
+                        span=socials.data[social].link

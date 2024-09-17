@@ -2,10 +2,100 @@
     @extend %page;
 
     display: flex;
-    // background: $color-contessa;
-    // color: $color-white;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+    background-color: #080808;
+    color: white;
+}
+
+.home_wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.home_hero {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
+
+.home_hero_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home_hero_media {
+    display: flex;
+    width: 30rem;
+    height: 30rem;
+}
+
+.home_hero_media_image {
+    width: 100%;
+    height: 100%;
+}
+
+.home_hero_text_wrapper {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 4rem;
+    right: 5rem;
+}
+
+.home_hero_text {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.home_hero_button {
+
+}
+
+.home_hero_button_text {
+
+}
+
+
+.home_works {
+
+}
+
+.home_works_wrapper {
+
+}
+
+.home_works_slider {
+
+}
+
+.home_works_slider_media {
+
+}
+
+.home_works_slider_media_image {
+
+}
+
+
+.home_works_title {
+
+}
+
+.home_works_title_text {
+
+}
+

@@ -12,7 +12,7 @@ class App {
 
         // this.createNavigation()
 
-        this.createCanvas()
+        // this.createCanvas()
 
         // this.createPreloader()
 

@@ -64,28 +64,69 @@ app.use((req, res, next) => {
     }
 
     res.locals.prismicH = prismicH
+    next()
 })
 
 const handleDefaults = async (client) => {
-    const meta = await client.getSingle('meta')
-    const preloader = await client.getSingle('preloader')
+    const metadata = await client.getSingle('metadata')
+    const navigation = await client.getSingle('naviga')
+    const profile = await client.getSingle('profile')
+    const socials = await client.getSingle('socials')
+    const projects = await client.getAllByType('project')
+
+    const home = await client.getSingle('home')
+    const about = await client.getSingle('about')
 
     // Foo
 
     const assets = []
 
+    // console.log("about slices", about.data.body)
 
     return {
         assets,
-        meta,
-        preloader
+        metadata,
+        navigation,
+        profile,
+        projects,
+        socials,
+        home,
+        about
     }
+
 }
 
 app.get('/', async (req, res) => {
     const defaults = await handleDefaults(client)
 
+    console.log("called home!")
+
     res.render('pages/home', {
+        ...defaults
+    })
+})
+
+app.get('/detail/:uid', async (req, res) => {
+    const defaults = await handleDefaults(client)
+
+    const project = defaults.projects.find(item => {
+        return item.slugs[0] === req.params.uid
+    })
+
+    console.log("called detail!")
+
+    res.render('pages/detail', {
+        ...defaults,
+        project
+    })
+})
+
+app.get('/about', async (req, res) => {
+    const defaults = await handleDefaults(client)
+
+    console.log("called about!")
+
+    res.render('pages/about', {
         ...defaults
     })
 })

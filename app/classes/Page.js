@@ -1,4 +1,4 @@
-import { each, map } from 'lodash'
+import { each } from 'lodash'
 import GSAP from 'gsap'
 import Prefix from 'prefix'
 import AsyncLoad from './AsyncLoad.js'

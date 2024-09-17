@@ -1,8 +1,33 @@
-.navigation{
-    @extend %cover;
+.nav_bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 10px 10px;
+}
 
-    color: null;
-    pointer-events: none;
-    position: fixed;
-    z-index: z('navigation');
+.nav_switch {
+
+}
+
+
+.nav_name_tag {
+
+}
+
+
+.nav_status_box {
+
+}
+
+.nav_status_text {
+
+}
+
+.nav_profile_media {
+
+}
+
+.nav_profile_media_image {
+
 }

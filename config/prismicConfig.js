@@ -4,7 +4,7 @@
 import fetch from 'node-fetch'
 import * as prismic from '@prismicio/client'
 
-const repoName = '' // Fill in your repository name.
+const repoName = 'kelechi' // Fill in your repository name.
 const accessToken = process.env.PRISMIC_ACCESS_TOKEN // If your repository is private, add an access token.
 
 // The `routes` property is your route resolver. It defines how you will

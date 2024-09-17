@@ -13,14 +13,16 @@ html {
         font-size: calc(100vw / 750 * 10);
     }
 
-    background: $color-black;
-    color: $color-white;
+    // background: $color-black;
+    // color: $color-white;
 }
 
 body {
+    font-family: 'Inter', sans-serif;
+
     overflow: hidden;
     @extend %description-18;
-    font-family: null;
+    // font-family: null;
 
     @include media('<phone') {
         font-size: 100px;
