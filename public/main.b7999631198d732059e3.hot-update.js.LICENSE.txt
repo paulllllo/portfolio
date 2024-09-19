@@ -1,0 +1,19 @@
+/*! ../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */
+
+/*! lodash */
+
+/*! normalize-wheel */
+
+/*! pages/Home/index.js */
+
+/*!**********************!*\
+  !*** ./app/index.js ***!
+  \**********************/
+
+/*!***************************!*\
+  !*** ./styles/index.scss ***!
+  \***************************/
+
+/*!*********************************!*\
+  !*** ./app/pages/Home/index.js ***!
+  \*********************************/

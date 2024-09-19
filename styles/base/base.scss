@@ -13,12 +13,17 @@ html {
         font-size: calc(100vw / 750 * 10);
     }
 
+    width: 100%;
+    height: 100%;
+
     // background: $color-black;
     // color: $color-white;
 }
 
 body {
     font-family: 'Inter', sans-serif;
+    width: 100%;
+    height: 100%;
 
     overflow: hidden;
     @extend %description-18;
@@ -36,14 +41,15 @@ a {
 }
 
 img {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s ease-in;
     vertical-align: middle;
 
-    &.loaded {
-        opacity: 1;
-    }
 }
+//     &.loaded {
+//         opacity: 1;
+//     }
+// }
 
 button {
     border: none;

@@ -44,8 +44,11 @@ export default class Page {
             }
         })
 
+        console.log('this.elements.wrapper', this.elements.wrapper)
+
         this.createAnimations()
         this.createAsyncLoad()
+        this.onResize()
     }
 
     createAnimations () {
@@ -111,12 +114,15 @@ export default class Page {
         // const { deltaY } = event
 
         this.scroll.target += pixelY
+        // console.log('wheel')
     }
 
     onResize () {
         if (this.elements.wrapper) {
             this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight
         }
+
+        console.log('this.scroll.limit', this.scroll.limit)
 
         each(this.animatedElements, element => {
             element.onResize()
@@ -127,7 +133,9 @@ export default class Page {
 
     updateScroll () {
         // console.log('updating scroll')
-        this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target)
+        // console.log(this.scroll.target)
+        this.scroll.target = GSAP.utils.clamp(0, 1000, this.scroll.target)
+        // console.log('scroll.target after', this.scroll.target)
 
         this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.1)
 
@@ -137,6 +145,7 @@ export default class Page {
 
         if (this.elements.wrapper) {
             this.elements.wrapper.style[this.transformPrefix] = `translateY(-${this.scroll.current}px)`
+            // console.log(this.scroll.current)
         }
     }
 

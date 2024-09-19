@@ -1,10 +1,7 @@
 .home {
     @extend %page;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    display: block;
 
     width: 100%;
     height: 100%;
@@ -14,15 +11,17 @@
 
 .home_wrapper {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
+    // height: 100%;
 }
 
 .home_hero {
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -36,28 +35,34 @@
 
 .home_hero_media {
     display: flex;
-    width: 30rem;
-    height: 30rem;
+    width: 80rem;
+    height: 80rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .home_hero_media_image {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .home_hero_text_wrapper {
-    width: 60%;
+    width: 100rem;
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 4rem;
-    right: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -40%);
 }
 
 .home_hero_text {
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    font-size: 5rem;
+    font-size: 11rem;
     font-weight: 600;
 }
 

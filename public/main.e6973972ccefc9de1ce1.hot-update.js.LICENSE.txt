@@ -1,0 +1,11 @@
+/*! ../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */
+
+/*! classes/page.js */
+
+/*!***************************!*\
+  !*** ./styles/index.scss ***!
+  \***************************/
+
+/*!*********************************!*\
+  !*** ./app/pages/Home/index.js ***!
+  \*********************************/
