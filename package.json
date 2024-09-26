@@ -29,6 +29,7 @@
         "image-minimizer-webpack-plugin": "^4.0.0",
         "include-media": "^2.0.0",
         "mini-css-extract-plugin": "^2.8.0",
+        "nodemon": "^3.0.3",
         "postcss-loader": "^8.1.0",
         "sass": "^1.70.0",
         "sass-loader": "^14.1.0",
@@ -36,8 +37,7 @@
         "terser-webpack-plugin": "^5.3.10",
         "webpack": "^5.90.1",
         "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^4.15.1",
-        "nodemon": "^3.0.3"
+        "webpack-dev-server": "^4.15.1"
     },
     "dependencies": {
         "@prismicio/client": "^7.3.1",

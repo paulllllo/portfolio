@@ -1,6 +1,8 @@
 import { each } from 'lodash'
 
 import Home from 'pages/Home/index.js'
+import About from 'pages/About/index.js'
+import Detail from 'pages/Detail/index.js'
 
 // import Preloader from 'components/Preloader.js'
 // import Navigation from './components/Navigation.js'
@@ -44,7 +46,9 @@ class App {
 
     createPages () {
         this.pages = {
-            home: new Home()
+            home: new Home(),
+            about: new About(),
+            detail: new Detail()
         }
 
         this.page = this.pages[this.template]

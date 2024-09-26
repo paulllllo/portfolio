@@ -18,6 +18,30 @@
  * @author: Jack Doyle, jack@greensock.com
 */
 
+/*!
+ * Observer 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * ScrollTrigger 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*! ../animations/HeroSequence.js */
+
+/*! ../classes/Component.js */
+
 /*! ../modules/logger/index.js */
 
 /*! ../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */
@@ -33,6 +57,8 @@
 /*! ./ExecutionEnvironment */
 
 /*! ./Logger */
+
+/*! ./Observer.js */
 
 /*! ./UserAgent_DEPRECATED */
 
@@ -98,11 +124,17 @@
 
 /*! gsap */
 
+/*! gsap/ScrollTrigger.js */
+
 /*! html-entities */
 
 /*! lodash */
 
 /*! normalize-wheel */
+
+/*! pages/About/index.js */
+
+/*! pages/Detail/index.js */
 
 /*! pages/Home/index.js */
 
@@ -140,6 +172,14 @@
   !*** ./app/classes/Component.js ***!
   \**********************************/
 
+/*!**********************************!*\
+  !*** ./app/pages/About/index.js ***!
+  \**********************************/
+
+/*!***********************************!*\
+  !*** ./app/pages/Detail/index.js ***!
+  \***********************************/
+
 /*!************************************!*\
   !*** ./node_modules/gsap/index.js ***!
   \************************************/
@@ -153,8 +193,16 @@
   \***************************************/
 
 /*!***************************************!*\
+  !*** ./node_modules/gsap/Observer.js ***!
+  \***************************************/
+
+/*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
   \***************************************/
+
+/*!****************************************!*\
+  !*** ./app/animations/HeroSequence.js ***!
+  \****************************************/
 
 /*!****************************************!*\
   !*** ./node_modules/gsap/CSSPlugin.js ***!
@@ -171,6 +219,10 @@
 /*!********************************************!*\
       !*** ./client-src/modules/logger/index.js ***!
       \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/gsap/ScrollTrigger.js ***!
+  \********************************************/
 
 /*!*********************************************!*\
   !*** ./node_modules/webpack/hot/emitter.js ***!
