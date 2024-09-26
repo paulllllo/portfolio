@@ -5,30 +5,22 @@ block variables
 
 block content
     .home
-        .nav_bar
-            .nav_switch
-
-            span.nav_name_tag=navigation.data.name
-
-            .nav_status_box
-                p.nav_status_text=`${navigation.data.availability ? 'Available to work since' : 'Available to work from'}`
-                    span="15th September"
-                .nav_profile_media
-                    img.nav_profile_media_image(alt=profile.data.profile_picture.alt, data-src=profile.data.profile_picture.url)
-
         .home_wrapper
             .home_hero
                 .home_hero_wrapper
                     .home_hero_media
                         img.home_hero_media_image(alt=home.data.hero_image.alt, src=home.data.hero_image.url)
+
+                    .home_hero_blur
+
                     .home_hero_text_wrapper
                         p.home_hero_text=home.data.hero_text
                 .home_hero_button
-                    p.home_hero_button_text
+                    p.home_hero_button_text="Check out my works"
 
             .home_works
-                each project in projects
-                    .home_works_wrapper
+                .home_works_wrapper
+                    each project in projects
                         .home_works_slider
                                 .home_works_slider_media
                                     img.home_works_slider_media_image(alt=project.data.image.alt, src=project.data.image.url)
