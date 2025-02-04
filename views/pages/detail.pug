@@ -19,8 +19,8 @@ block content
                 each detail in project.data.details
                     - for (const key in detail)
                         .details_detail
-                            span.details_detail_title=key
+                            span.details_detail_title(data-animation="textSlide")=key
 
-                            p.details_detail_desc=detail[key]
+                            p.details_detail_desc(data-animation="textSlide")=detail[key]
 
         include ./../shared/footer

@@ -1,26 +1,68 @@
 .nav_bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin: auto;
     width: 95%;
     align-items: center;
     padding: 20px 10px;
-    align-items: center;
     background: none;
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: z('navigation');
-    // width: 100%;
     color: white;
 }
 
-.nav_switch {
+.nav_item:not(:nth-child(2)) {
+    flex-basis: 0%;
+    flex-grow: 1;
+  }
 
+.nav_item:last-child {
+    display: flex;
+    justify-content: end;
+}
+
+.nav_link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.nav_link_item {
+    position: absolute;
+    pointer-events: auto;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    @include media('<=phone') {
+        font-size: 2rem;
+    }
+
+    @include media('<=tablet') {
+        font-size: 4rem;
+    }
+}
+
+.nav_list_link {
+    display: block;
 }
 
 
 .nav_name_tag {
+    font-size: 2rem;
+    font-weight: 500;
 
+    @include media('<=phone') {
+        font-size: 2rem;
+    }
+
+    @include media('<=tablet') {
+        font-size: 4rem;
+    }
 }
 
 .nav_status_box {
@@ -29,11 +71,43 @@
     align-items: center;
 }
 
+.since {
+    color: green;
+}
+
+.from {
+    color: red;
+}
+
+.nav_avail {
+    font-size: 2rem;
+    font-weight: 500;
+
+    @include media('<=phone') {
+        display: none;
+        font-size: 2rem;
+    }
+
+    @include media('<=tablet') {
+        font-size: 4rem;
+    }
+}
+
 .nav_status_text {
     margin-right: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    font-size: 2rem;
+
+    @include media('<=phone') {
+        display: none;
+        font-size: 2rem;
+    }
+
+    @include media('<=tablet') {
+        font-size: 4rem;
+    }
 }
 
 .nav_profile_media {
@@ -41,6 +115,16 @@
     height: 30px;
     border-radius: 50%;
     overflow: hidden;
+
+    // @include media('<=tablet') {
+    //     width: 30px;
+    //     height: 30px;
+    // }
+
+    // @include media('<=tablet') {
+    //     width: 40px;
+    //     height: 40px;
+    // }
 }
 
 .nav_profile_media_image {

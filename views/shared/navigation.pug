@@ -1,10 +1,19 @@
 .nav_bar
-    .nav_switch
+    .nav_item
+        ul.nav_link
+            each item, key in navigation.data.links[0]
+                li.nav_link_item
+                    a.nav_list_link(data-animation="link" href=`/${navigation.data.links[0][key].slug === 'home' ? '' : navigation.data.links[0][key].slug}`)
+                        span=navigation.data.links[0][key].slug
 
-    span.nav_name_tag=navigation.data.name
+    .nav_item
+        a.nav_name_tag(href='/')=navigation.data.name_tag
 
-    .nav_status_box
-        p.nav_status_text=`${navigation.data.availability ? 'Available to work since' : 'Available to work from'}`
-            span="15th September"
-        .nav_profile_media
-            img.nav_profile_media_image(alt=profile.data.profile_picture.alt, data-src=profile.data.profile_picture.url)
+    .nav_item
+        .nav_status_box
+            .nav_status_text
+                p='Available to work'
+                    span.nav_avail(class=`${navigation.data.availability ? 'since' : 'from'}`)=`${navigation.data.availability ? ' since' : ' from'}`
+                span="15th September"
+            .nav_profile_media
+                img.nav_profile_media_image(alt=profile.data.profile_picture.alt, data-src=profile.data.profile_picture.url)

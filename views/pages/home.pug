@@ -6,28 +6,33 @@ block variables
 block content
     .home
         .home_wrapper
+            .home_globe_wrapper
+                .home_hero_media
+                    img.home_hero_media_image(alt=home.data.hero_image.alt, src=home.data.hero_image.url)
+                
+                .home_hero_blur
+
             .home_hero
                 .home_hero_wrapper
-                    .home_hero_media
-                        img.home_hero_media_image(alt=home.data.hero_image.alt, src=home.data.hero_image.url)
-
-                    .home_hero_blur
-
                     .home_hero_text_wrapper
                         p.home_hero_text=home.data.hero_text
                 .home_hero_button
                     p.home_hero_button_text="Check out my works"
 
-            .home_works
-                .home_works_wrapper
-                    each project in projects
-                        .home_works_slider
-                                .home_works_slider_media
-                                    img.home_works_slider_media_image(alt=project.data.image.alt, src=project.data.image.url)
+                    svg.home_hero_button_icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512")
+                        path(d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z")
 
-                //- .home_works_slider_next
-                        
-                .home_works_title
-                    span.home_works_title_text=projects[0].data.title
+            .home_spacer
+                .home_works
+                    .home_works_wrapper
+                        each project in projects
+                            .home_works_slider(data-name=project.data.title)
+                                    .home_works_slider_media
+                                        img.home_works_slider_media_image(alt=project.data.image.alt, src=project.data.image.url)
+
+                    //- .home_works_slider_next
+                            
+                    .home_works_title
+                        span.home_works_title_text=projects[0].data.title
 
 

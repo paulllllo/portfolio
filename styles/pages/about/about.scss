@@ -38,6 +38,11 @@
     width: 100%;
     height: 100vh;
     position: relative;
+
+    @include media('<=tablet') {
+        padding: 50px 0;
+        padding-top: 30rem;
+    }
 }
 
 .about_main_content_media {
@@ -47,6 +52,12 @@
     border-radius: 50%;
     border: .5px solid #fff;
     overflow: hidden;
+    flex-shrink: 0;
+
+    @include media('<=tablet') {
+        width: 40rem;
+        height: 40rem;
+    }
 }
 
 .about_main_content_media_image {
@@ -58,43 +69,83 @@
 .about_main_content_name {
     font-size: 8rem;
     margin-top: 20px;
+
+    @include media('<=phone') {
+        font-size: 5rem;
+        margin-top: 50px;
+    }
 }
 
 .about_main_content_bio {
     width: 70%;
     text-align: center;
-    font-size: 3.3rem;
+    font-size: 3rem;
     font-weight: 100;
     margin-top: 20px;
+    overflow: hidden;
+
+    @include media('<=phone') {
+        width: 90%;
+    }
+
+    @include media('<=tablet') {
+        font-size: 4rem;
+        margin-top: 0;
+    }
 }
 
 .about_main_button {
     position: absolute;
-    top: 75%;
+    // top: 75%;
+    bottom: 0;
+    transform: translateY(-300%);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: bounce 5s forwards ease-in-out;
+    animation-iteration-count: infinite;
+
+    @include media('<=tablet') {
+        font-size: 3rem;
+    }
+}
+
+.about_main_button_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.about_main_button_icon path {
+    fill: #fff;
 }
 
 .about_roadmap {
-    margin-top: 30rem;
+    margin-top: 20rem;
+    padding-bottom: 50rem;
     width: 100%;
+    overflow: hidden;
     // position: relative;
 }
 
 .about_roadmap_steps {
-   
+//    width: 100%;
+   position: relative;
+   left: 50%;
 }
 
 .about_roadmap_info {
     width: 100%;
     // position: absolute;
-    margin-top: 20rem;
+    margin-top: 90rem;
     // margin-right: 20px;
     display: flex;
     flex-direction: row;
     // align-items: center;
+
+    &:first-child {
+        margin-top: 60rem;
+    }
 }
 
 .about_roadmap_info_wrapper {
@@ -102,6 +153,10 @@
     flex-direction: column;
     align-items: center;
     width: 35%;
+
+    @include media('<=phone') {
+        width: 60%;
+    }
 }
 
 .right {
@@ -118,6 +173,10 @@
     height: 25px;
     border-radius: 50%;
     margin-bottom: 10px;
+
+    @include media('<=phone') {
+        margin-bottom: 10px;
+    }
 }
 
 .left .about_roadmap_badge{
@@ -130,4 +189,56 @@
 
 .about_roadmap_info_text {
     font-size: 3rem;
+}
+
+.foot {
+    opacity: 0.8;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    // transition: opacity .3s ease;
+}
+
+.footScroll {
+    opacity: 0;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    // transition: opacity .3s ease;
+}
+
+// .foot svg path {
+//     fill: purple;
+// }
+
+// .show {
+//     opacity: 1;
+//     // animation: animate 2s linear forwards;
+// }
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(200%);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translateY(200%);
+        opacity: 1;
+    }
+
+    40%, 100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
 }

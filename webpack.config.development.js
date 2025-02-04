@@ -7,10 +7,10 @@ const require = createRequire(import.meta.url)
 const { merge } = require('webpack-merge')
 const path = require('path')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 // const config = require('./webpack.config')
 
@@ -34,7 +34,7 @@ export default (merge(config.default, {
     },
 
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.join(__dirname, 'public'),
     },
 
     plugins: [
