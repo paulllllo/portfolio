@@ -1,6 +1,9 @@
-export default class Animation {
+import Component from './Component.js'
+
+export default class Animation extends Component {
     constructor ({ element }) {
-        this.element = element
+        super({ element })
+        // this.element = element
 
         this.createObserver()
 

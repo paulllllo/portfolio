@@ -23,6 +23,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     width: 100%;
+    transition: all .5 ease;
     // height: 100%;
 
     // overflow: hidden;
@@ -71,13 +72,19 @@ canvas {
     color: white;
 }
 
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
+
 // [data-animation="highlight"],
 // [data-animation="label"],
 // [data-animation="paragraph"],
 // [data-animation="title"] {
-//     span {
-//         vertical-align: top;
-//         overflow: hidden;
-//         display: inline-block;
-//     }
-// }
+[data-animation="textSlide"] {
+    span {
+        vertical-align: top;
+        overflow: hidden;
+        display: inline-block;
+    }
+}

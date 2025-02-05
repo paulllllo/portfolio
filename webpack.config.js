@@ -65,6 +65,55 @@ export default ({
             chunkFilename: '[id].css'
         }),
 
+        // new ImageMinimizerPlugin({
+        //     deleteOriginalAssets: false,
+        //     generator: [
+        //         {
+        //             type: "asset",
+        //             implementation: ImageMinimizerPlugin.imageminGenerate,
+        //             options: {
+        //                 plugins: ["imagemin-webp"],
+        //             },
+        //             //If you just want to make webp of some images, you can use a filter
+        //             filter: (source, sourcePath) => {return true;},
+        //         },
+        //     ],
+        //     minimizer: {
+        //         // Implementation
+        //         implementation: ImageMinimizerPlugin.imageminMinify,
+        //         // Options
+        //         options: {
+        //             plugins: [
+        //                 ["gifsicle", { interlaced: true }],
+        //                 ["optipng", { optimizationLevel: 5 }],
+        //                 // Svgo configuration here https://github.com/svg/svgo#configuration
+        //                 [
+        //                     "svgo",
+        //                     {
+        //                         plugins: [
+        //                             {
+        //                                 name: "preset-default",
+        //                                 params: {
+        //                                     overrides: {
+        //                                         removeViewBox: false,
+        //                                         addAttributesToSVGElement: {
+        //                                             params: {
+        //                                                 attributes: [
+        //                                                     { xmlns: "http://www.w3.org/2000/svg" },
+        //                                                 ],
+        //                                             },
+        //                                         },
+        //                                     },
+        //                                 },
+        //                             },
+        //                         ],
+        //                     }
+        //                 ]
+        //             ]
+        //         }
+        //     }
+        // }),
+
         new ImageMinimizerPlugin({
             minimizer: {
                 // Implementation

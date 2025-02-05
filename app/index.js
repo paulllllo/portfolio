@@ -5,14 +5,14 @@ import About from 'pages/About/index.js'
 import Detail from 'pages/Detail/index.js'
 
 // import Preloader from 'components/Preloader.js'
-// import Navigation from './components/Navigation.js'
+import Navigation from './components/Navigation.js'
 import Normalize from 'normalize-wheel'
 
 class App {
     constructor () {
         this.createContent()
 
-        // this.createNavigation()
+        this.createNavigation()
 
         // this.createCanvas()
 
@@ -26,9 +26,9 @@ class App {
         this.update()
     }
 
-    // createNavigation () {
-    //     this.navigation = new Navigation({ template: this.template })
-    // }
+    createNavigation () {
+        this.navigation = new Navigation({ template: this.template })
+    }
 
     // createPreloader () {
     //     this.preloader = new Preloader({ canvas: this.canvas })
@@ -94,7 +94,7 @@ class App {
             this.content.setAttribute('data-template', this.template)
             this.content.innerHTML = divContent.innerHTML
 
-            // this.navigation.onChange(this.template)
+            this.navigation.onChange(this.template)
 
             this.page = this.pages[this.template]
             this.page.create()
@@ -131,6 +131,18 @@ class App {
         }
     }
 
+    onScroll (event) {
+        if (this.page && this.page.onScroll) {
+            this.page.onScroll(event)
+        }
+    }
+
+    onMouseMove (event) {
+        if (this.page && this.page.onMouseMove) {
+            this.page.onMouseMove(event)
+        }
+    }
+
     // Loop
 
     update () {
@@ -149,6 +161,8 @@ class App {
 
     addEventListeners () {
         window.addEventListener('wheel', this.onWheel.bind(this))
+        window.addEventListener('scroll', this.onScroll.bind(this))
+        window.addEventListener('mousemove', this.onMouseMove.bind(this))
 
         window.addEventListener('popstate', this.onPopstate.bind(this))
         window.addEventListener('resize', this.onResize.bind(this))

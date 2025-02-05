@@ -77,6 +77,8 @@ const handleDefaults = async (client) => {
     const home = await client.getSingle('home')
     const about = await client.getSingle('about')
 
+    console.log('nav.slug', navigation.data.links[0]['about'].slug)
+
     // Foo
 
     const assets = []
@@ -100,6 +102,7 @@ app.get('/', async (req, res) => {
     const defaults = await handleDefaults(client)
 
     console.log("called home!")
+    // console.log('project[0]', defaults.projects[0])
 
     res.render('pages/home', {
         ...defaults

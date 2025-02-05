@@ -31,22 +31,38 @@
     align-items: center;
 }
 
+.home_globe_wrapper {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #080808;
+}
+
 .home_hero_media {
     display: flex;
     width: 80rem;
     height: 80rem;
-    position: fixed;
-    top: 40%;
+    position: absolute;
+    // position: fixed;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9;
+    z-index: 2;
+    will-change: transform, scale;
+
+    @include media('<=phone') {
+        width: 50rem;
+        height: 50rem;
+        top: 50%
+    }
 }
 
 .home_hero_media_image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    opacity: .4;
+    opacity: 0.4;
 }
 
 .home_hero_blur {
@@ -59,6 +75,7 @@
     display: flex;
     z-index: 10;
     opacity: 0;
+    will-change: opacity;
 }
 
 .home_hero_text_wrapper {
@@ -70,6 +87,10 @@
     left: 50%;
     transform: translate(-40%, -40%);
     z-index: 11;
+
+    @include media('<=phone') {
+        width: 60rem;
+    }
 }
 
 .home_hero_text {
@@ -78,6 +99,10 @@
     font-size: 11rem;
     font-weight: 600;
     // text-align: center;
+
+    @include media('<=phone') {
+        font-size: 7rem;
+    }
 }
 
 .home_hero_button {
@@ -85,38 +110,121 @@
     bottom: 0;
     transform: translate(0, -200%);
     width: 70px;
-    cursor: pointer;
-}
-
-.home_hero_button_text {
-
-}
-
-
-.home_works {
-    margin-top: 30rem;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    animation: bounce 5s forwards ease-in-out;
+    animation-iteration-count: infinite;
+
+    @include media('<=phone') {
+        transform: translate(0, -100%);
+        width: 165px;
+    }
+}
+
+.home_hero_button_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.home_hero_button_icon path {
+    fill: #fff;
+}
+
+// .home_hero_button_text {
+
+// }
+
+
+.home_spacer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30rem;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    transition: all .5s ease-in-out;
+    translate: none;
+    rotate: none;
+    scale: none;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    transform: translate(0px, 0px);
+}
+
+.home_works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // flex-shrink: 0;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
 }
 
 .home_works_wrapper {
     width: 100%;
     height: 100%;
+    padding: 0 50%;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    // overflow: hidden;
+    scroll-snap-type: x proximity;
+    will-change: transform;
+
+    @include media('<=phone') {
+        // width: fit-content;
+        height: 70%;
+    }
 }
 
 .home_works_slider {
-    width: 110rem;
-    height: 70rem;
+    z-index: 100;
+    width: 60rem;
+    height: 40rem;
     border-radius: 3rem;
-    margin: auto;
+    // margin: auto;
     margin-top: 20rem;
     overflow: hidden;
+    margin-right: 15rem;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+    transition: transform .5s ease-in-out;
+
+    @include media('<=phone') {
+        width: 40rem;
+        height: 30rem;
+    }
+
+    @include media('<=tablet') {
+        width: 60rem;
+        height: 40rem;
+    }
+}
+
+.active {
+    transform: scale(1.4);
 }
 
 .home_works_slider_media {
     width: 100%;
     height: 100%;
+    will-change: scale;
 }
 
 .home_works_slider_media_image {
@@ -128,9 +236,13 @@
 
 .home_works_title {
     width: 100%;
+    height: 22rem;
     display: flex;
     justify-content: center;
-    margin-top: 10rem;
+    margin-top: 8rem;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .home_works_title_text {
@@ -138,5 +250,28 @@
     opacity: .3;
     text-transform: uppercase;
     margin-bottom: 20px;
+    position: absolute;
+}
+
+@keyframes bounce {
+    0% {
+        bottom: 20px;
+    }
+
+    10% {
+        bottom: 0;
+    }
+
+    20% {
+        bottom: 20px;
+    }
+
+    30% {
+        bottom: 0;
+    }
+
+    40%, 100% {
+        bottom: 20px;
+    }
 }
 
