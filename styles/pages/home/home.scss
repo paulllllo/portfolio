@@ -185,6 +185,7 @@
     // overflow: hidden;
     scroll-snap-type: x proximity;
     will-change: transform;
+    // will-change: transform;
 
     @include media('<=phone') {
         // width: fit-content;
