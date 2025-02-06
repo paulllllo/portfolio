@@ -34,17 +34,17 @@
 .nav_link_item {
     position: absolute;
     pointer-events: auto;
-    font-size: 2rem;
+    font-size: max(2rem, 17px);
     font-weight: 500;
     text-transform: capitalize;
 
-    @include media('<=phone') {
-        font-size: 2rem;
-    }
+    // @include media('<=tablet') {
+    //     font-size: 4rem;
+    // }
 
-    @include media('<=tablet') {
-        font-size: 4rem;
-    }
+    // @include media('<=phone') {
+    //     font-size: 3rem;
+    // }
 }
 
 .nav_list_link {
@@ -53,16 +53,16 @@
 
 
 .nav_name_tag {
-    font-size: 2rem;
+    font-size: max(2rem, 17px);
     font-weight: 500;
 
-    @include media('<=phone') {
-        font-size: 2rem;
-    }
+    // @include media('<=phone') {
+    //     font-size: 2rem;
+    // }
 
-    @include media('<=tablet') {
-        font-size: 4rem;
-    }
+    // @include media('<=tablet') {
+    //     font-size: 4rem;
+    // }
 }
 
 .nav_status_box {
@@ -111,8 +111,8 @@
 }
 
 .nav_profile_media {
-    width: 30px;
-    height: 30px;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
     overflow: hidden;
 

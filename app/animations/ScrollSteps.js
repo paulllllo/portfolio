@@ -29,11 +29,12 @@ export default class ScrollSteps extends Component {
     }
 
     createSteps () {
+        const device = window.innerWidth > 768 ? window.innerWidth > 1024 ? 'desktop' : 'tablet' : 'mobile'
+        const numberOfSteps = device === 'mobile' ? 80 : device === 'tablet' ? 100 : 110
         this.offset = 0
-        // this.center = false
 
         const calcPosition = (index) => {
-            const breakPoint = 6
+            const breakPoint = device === 'mobile' ? 3 : device === 5 ? 100 : 5
             const startNum = 10
 
             const position = {
@@ -91,7 +92,7 @@ export default class ScrollSteps extends Component {
             return position
         }
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < numberOfSteps; i++) {
             const toggleFeet = () => {
                 const foot = this.foot === 'left' ? this.leftFoot.cloneNode(true) : this.rightFoot.cloneNode(true)
 
@@ -123,9 +124,9 @@ export default class ScrollSteps extends Component {
         this.timeline = GSAP.timeline({
             scrollTrigger: {
                 trigger: this.elements.container,
-                start: 'top 40%',
-                end: 'bottom bottom',
-                scrub: 0.5,
+                start: 'top 50%',
+                end: 'bottom 80%',
+                scrub: 0.1,
                 // markers: true,
                 ease: 'none'
             }
@@ -135,6 +136,7 @@ export default class ScrollSteps extends Component {
             this.timeline.to(foot, {
                 opacity: 0.8,
                 ease: 'none'
+                // stagger: 3
             })
         })
     }
