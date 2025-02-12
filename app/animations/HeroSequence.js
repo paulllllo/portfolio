@@ -15,7 +15,8 @@ export default class HeroSequence extends Component {
                 works: '.home_works',
                 worksWrapper: '.home_works_wrapper',
                 workTitle: '.home_works_title_text',
-                titleWrapper: '.home_works_title'
+                titleWrapper: '.home_works_title',
+                feedbackSection: '.home_feedback'
             }
         })
 
@@ -44,6 +45,7 @@ export default class HeroSequence extends Component {
         this.update()
 
         this.createTimeline()
+        this.initFeedback()
     }
 
     createTimeline () {
@@ -276,6 +278,54 @@ export default class HeroSequence extends Component {
             // console.log('scroll current', this.scroll.current)
             // console.log('pixelY', Math.floor(event.pixelY))
         }
+    }
+
+    initFeedback () {
+        const tl = GSAP.timeline({
+            scrollTrigger: {
+                trigger: this.elements.feedbackSection,
+                start: 'top 20%',
+                end: 'bottom 20%',
+                toggleActions: 'play reverse play reverse'
+                // markers: true
+            }
+        })
+        const backTexts = GSAP.utils.toArray('.home_feedback_span')
+
+        backTexts.forEach((text, index) => {
+            if (((index + 1) % 2 === 0)) {
+                tl.from(text, {
+                    xPercent: 100,
+                    autoAlpha: 0,
+                    duration: 2,
+                    ease: 'expo'
+                }, 0)
+            } else {
+                tl.from(text, {
+                    xPercent: -100,
+                    autoAlpha: 0,
+                    duration: 2,
+                    ease: 'expo'
+                }, 0)
+            }
+        })
+
+        const commentsTl = GSAP.timeline({ repeat: -1 })
+        const comments = GSAP.utils.toArray('.home_feedback_block')
+
+        comments.forEach((comment, index) => {
+            const currentComment = comments[(comments.length - 1) - index]
+            commentsTl.from(currentComment, {
+                autoAlpha: 0,
+                y: 100
+            }, '>')
+
+            commentsTl.to(currentComment, {
+                y: -100,
+                autoAlpha: 0,
+                delay: 3
+            }, '>')
+        })
     }
 
     animateIn () {}
