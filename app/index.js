@@ -99,6 +99,7 @@ class App {
             this.page = this.pages[this.template]
             this.page.create()
             this.onResize()
+            window.scrollTo(0, 0)
             this.page.show()
 
             this.addLinkListeners()
@@ -178,7 +179,11 @@ class App {
                 event.preventDefault()
                 const { href } = link
 
-                this.onPageChange({ url: href })
+                if (href.startsWith('/') || href.startsWith('#') || href.indexOf(window.location.origin) === 0) {
+                    this.onPageChange({ url: href })
+                } else {
+                    window.open(href, '_blank')
+                }
             }
         })
     }

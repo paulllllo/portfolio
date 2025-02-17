@@ -76,8 +76,6 @@ export default class Page {
             this.animatedSequences.push(this.heroSequence)
         }
 
-        console.log('checki ')
-
         if (this.id === 'about') {
             this.mouseSteps = new MouseSteps()
             this.scrollSteps = new ScrollSteps()
@@ -187,12 +185,12 @@ export default class Page {
             this.scroll.limit = this.element.clientHeight - window.innerHeight
         }
 
-        console.log('this.scroll.limit', this.scroll.limit)
+        // console.log('this.scroll.limit', this.scroll.limit)
 
         if (this.animationSlideUp) {
-            console.log('slideUP', this.animationSlideUp)
+            // console.log('slideUP', this.animationSlideUp)
             this.animationSlideUp.forEach(item => {
-                console.log('InsideSlideLoop')
+                // console.log('InsideSlideLoop')
                 item.onResize()
             })
         }
@@ -235,6 +233,9 @@ export default class Page {
 
     removeEventListeners () {
         // window.removeEventListener('mousewheel', this.onMouseWheelEvent)
+        if (this.heroSequence) {
+            this.heroSequence.removeEventListeners()
+        }
     }
 
     // Destroy

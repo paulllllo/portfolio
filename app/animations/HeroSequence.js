@@ -33,6 +33,8 @@ export default class HeroSequence extends Component {
         GSAP.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
         this.worksWidth = this.elements.works.scrollWidth
+        this.worksTop = this.elements.worksWrapper.offsetTop
+        this.worksHeight = this.elements.worksWrapper.offsetHeight
 
         this.projects = document.querySelectorAll('.home_works_slider')
 
@@ -45,6 +47,7 @@ export default class HeroSequence extends Component {
         this.update()
 
         this.createTimeline()
+        this.addScrollEvent()
         this.initFeedback()
     }
 
@@ -67,12 +70,13 @@ export default class HeroSequence extends Component {
         })
         // console.log(this.observer)
 
-        this.timeline.to(this.elements.blurDiv, {
-            // backdropFilter: 'blur(5px)',
-            // '-webkit-backdrop-filter': 'blur(5px)'
-            autoAlpha: 1
-            // y: -300
-        })
+        // this.timeline.to(this.elements.blurDiv, {
+        //     // backdropFilter: 'blur(5px)',
+        //     // '-webkit-backdrop-filter': 'blur(5px)'
+        //     opacity: 1
+        //     // autoAlpha: 1
+        //     // y: -300
+        // })
 
         this.timeline.to(this.elements.heroText, {
             autoAlpha: 0
@@ -139,7 +143,7 @@ export default class HeroSequence extends Component {
             this.index = 0
         } else {
             this.index = index
-            console.log('changed index', this.index)
+            // console.log('changed index', this.index)
         }
 
         this.projects.forEach((project, i) => {
@@ -200,37 +204,45 @@ export default class HeroSequence extends Component {
     update () {
         const index = Math.floor(Math.abs((this.scroll.current) / (this.projects[0].getBoundingClientRect().width + this.slidesMargin)))
 
+        // console.log('scrollCurrent projrctWidth index', this.scroll.current, this.projects[0].getBoundingClientRect().width, index)
+
         const updateFunc = this.update.bind(this)
 
         this.frame = window.requestAnimationFrame(_ => {
             if (this.index !== index) {
                 this.changeIndex(index)
-                console.log('index in animationFrame', index)
+                // console.log('index in animationFrame', index)
             }
 
             // console.log('scroll current', this.scroll.current)
 
-            const position = Math.abs((this.elements.worksWrapper.offsetTop - document.documentElement.scrollTop) - 100)
+            // const position = Math.abs((this.elements.worksWrapper.offsetTop - document.documentElement.scrollTop) - 100)
 
-            if (position <= 10 && position >= 0) {
+            // console.log('worksWrapper.offsetTop, document.scrollTop, position', this.elements.worksWrapper.offsetTop, document.documentElement.scrollTop, position)
+
+            // console.log('worksHeight, worksTop', this.worksHeight, this.worksTop)
+
+            if (window.scrollY >= this.worksTop && window.scrollY <= (this.worksTop + 100)) {
                 if (!(this.elements.works.classList.contains('fixed'))) {
                     // this.elements.works.style.top = `${this.elements.works.offsetTop}px`
                     // console.log('{works style}', this.elements.works.style)
                     // console.log('{works offsetTop}', this.elements.works.offsetTop)
                     this.elements.works.classList.add('fixed')
                     document.body.classList.add('stop-scrolling')
+                    // console.log(' After Fixed!! this.worksHeight, this.worksTop', this.worksHeight, this.worksTop)
 
-                    if (this.scrollDirection === 'down') {
-                        this.scroll.current += 10
-                    } else if (this.scrollDirection === 'up') {
-                        this.scroll.current -= 10
-                    }
+                    // if (this.scrollDirection === 'down') {
+                    //     this.scroll.current += 10
+                    // } else if (this.scrollDirection === 'up') {
+                    //     this.scroll.current -= 10
+                    // }
 
-                    console.log('className added')
+                    // console.log('className added')
                 }
-            } else if ((this.scroll.current >= (this.worksWidth - window.innerWidth)) || this.scroll.current <= 0) {
+            } else if (this.elements.works.classList.contains('fixed')) {
                 // this.scroll.current = this.scroll.target = 0
                 this.elements.works.classList.remove('fixed')
+                // console.log('scrollY after removing fixed', window.scrollY)
                 document.body.classList.remove('stop-scrolling')
                 // console.log('className removed')
             }
@@ -242,13 +254,25 @@ export default class HeroSequence extends Component {
     updateWorksScroll (scrollSize) {
         // console.log('scrollsize before', scrollSize)
         // console.log('target before', this.scroll.target)
+        // console.log('current init', this.scroll.current, scrollSize)
         this.scroll.target += scrollSize
 
         if (this.scroll.target > (this.worksWidth - window.innerWidth)) {
             this.scroll.target = this.scroll.current = Math.floor(this.worksWidth - window.innerWidth)
+            // console.log('remove fixed now')
+            // console.log('scrollY', window.scrollY)
+            if (this.elements.works.classList.contains('fixed')) {
+                window.scrollTo(0, window.scrollY + 100)
+                // console.log('scrollY after', window.scrollY)
+            }
         } else if (this.scroll.target < 0) {
             this.scroll.target = this.scroll.current = 0
+            // console.log('remove fixed now top')
+            if (this.elements.works.classList.contains('fixed')) {
+                window.scrollTo(0, window.scrollY - 100)
+            }
         } else {
+            // console.log('current before', this.scroll.current, this.scroll.target, this.scroll.lerp)
             this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, this.scroll.lerp)
             // this.scroll.current = this.scroll.target
         }
@@ -264,8 +288,11 @@ export default class HeroSequence extends Component {
 
     onWheel (event) {
         // this.scrollSize = scrollSize
+        // event.preventDefault()
 
         // console.log('offsetTop, scrollTop', this.elements.worksWrapper.offsetTop, document.documentElement.scrollTop)
+
+        // console.log('event', event)
 
         if (event.pixelY > 0) {
             this.scrollDirection = 'down'
@@ -278,6 +305,47 @@ export default class HeroSequence extends Component {
             // console.log('scroll current', this.scroll.current)
             // console.log('pixelY', Math.floor(event.pixelY))
         }
+        // else {
+        //     // window.scrollTo(0, window.scrollY + event.pixelY)
+        //     window.scrollTo(window.scrollX, window.scrollY)
+        // }
+    }
+
+    addScrollEvent () {
+        const onSwipe = (callback) => {
+            // const touchItem = el
+            // const threshold = 150
+            let startY
+            let distY
+            const handleSwipe = callback || ((distY) => {})
+
+            this.touchStartHandler = (event) => {
+                // console.log('touchStarted')
+                const touchObj = event.changedTouches[0]
+                distY = 0
+                startY = touchObj.pageY
+            }
+
+            this.touchMoveHandler = (event) => {
+                // console.log('touchMoved')
+                const touchObj = event.changedTouches[0]
+                distY = touchObj.pageY - startY
+                startY = touchObj.pageY
+
+                handleSwipe({ pixelY: -(distY) })
+            }
+
+            document.body.addEventListener('touchstart', this.touchStartHandler.bind(this), false)
+
+            document.body.addEventListener('touchmove', this.touchMoveHandler.bind(this), false)
+        }
+
+        onSwipe(this.onWheel.bind(this))
+    }
+
+    removeEventListeners () {
+        document.body.removeEventListener('touchstart', this.touchStartHandler.bind(this))
+        document.body.addEventListener('touchmove', this.touchMoveHandler.bind(this))
     }
 
     initFeedback () {
@@ -332,5 +400,7 @@ export default class HeroSequence extends Component {
 
     animateOut () {}
 
-    onResize () {}
+    onResize () {
+        GSAP.ticker.refresh()
+    }
 }
