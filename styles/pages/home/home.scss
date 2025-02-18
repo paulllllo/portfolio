@@ -478,6 +478,8 @@
 .home_contactme_icon {
     width: 2rem;
     height: 2rem;
+    display: flex;
+    flex-shrink: 0;
 }
 
 .home_contactme_icon svg {
@@ -511,7 +513,7 @@
     // height: 5rem;
     padding: 2.5rem 5rem;
     font-size: 3rem;
-    font-weight: 100;
+    font-weight: 500;
     border-radius: 5rem;
     cursor: pointer;
 }

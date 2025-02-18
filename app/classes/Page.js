@@ -95,7 +95,7 @@ export default class Page {
             this.animateSlideUp.push(new TextSlideUp({ element: this.elements.animationTextSlide }))
         } else if (this.elements.animationTextSlide) {
             this.animationSlideUp = map(this.elements.animationTextSlide, element => {
-                console.log('elementSlide', element)
+                // console.log('elementSlide', element)
                 return new TextSlideUp({ element })
             })
         }

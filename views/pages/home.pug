@@ -27,7 +27,7 @@ block content
                 .home_works
                     .home_works_wrapper
                         each project in projects
-                            a.home_works_slider(data-name=project.data.title, href=`/detail/${project.data.title}`)
+                            a.home_works_slider(data-name=project.data.title, href=`/detail/${project.data.title.toLowerCase()}`)
                                     .home_works_slider_media
                                         img.home_works_slider_media_image(alt=project.data.image.alt, src=project.data.image.url)
 

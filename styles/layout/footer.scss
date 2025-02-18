@@ -54,6 +54,8 @@
 .footer_social_icon {
     width: 2rem;
     height: 2rem;
+    display: flex;
+    flex-shrink: 0;
 }
 
 .footer_social_icon svg {

@@ -68,6 +68,6 @@ export default class TextSlideUp extends Animation {
 
     onResize () {
         this.lines = calculate(this.spans)
-        console.log('lines', this.lines)
+        // console.log('lines', this.lines)
     }
 }

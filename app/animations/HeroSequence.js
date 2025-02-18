@@ -346,6 +346,11 @@ export default class HeroSequence extends Component {
     removeEventListeners () {
         document.body.removeEventListener('touchstart', this.touchStartHandler.bind(this))
         document.body.addEventListener('touchmove', this.touchMoveHandler.bind(this))
+
+        if (this.frame) {
+            window.cancelAnimationFrame(this.frame)
+            this.frame = undefined
+        }
     }
 
     initFeedback () {
