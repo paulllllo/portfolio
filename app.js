@@ -116,8 +116,6 @@ app.get('/detail/:uid', async (req, res) => {
         return item.slugs[0] === req.params.uid
     })
 
-    console.log('project', project.data)
-
     // console.log("called detail!")
 
     res.render('pages/detail', {

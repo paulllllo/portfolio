@@ -144,6 +144,10 @@ export default class Page {
 
     hide () {
         return new Promise(resolve => {
+            if (this.heroSequence && this.heroSequence.animateOut) {
+                this.heroSequence.animateOut()
+            }
+
             this.destroy()
             this.animationOut = GSAP.timeline()
 

@@ -403,7 +403,12 @@ export default class HeroSequence extends Component {
 
     animateIn () {}
 
-    animateOut () {}
+    animateOut () {
+        if (this.elements.works.classList.contains('fixed')) {
+            this.elements.works.classList.remove('fixed')
+            document.body.classList.remove('stop-scrolling')
+        }
+    }
 
     onResize () {
         GSAP.ticker.refresh()
