@@ -1,5 +1,8 @@
 .preloader
-    p.preloader_text!=preloader.data.title.replace(/\n/g, '<br>')
+    //- p.preloader_text!=preloader.data.title.replace(/\n/g, '<br>')
 
     .preloader_number
         .preloader_number_text 0%
+
+    .preloader_vid
+        img.preloader_vid_media(src=preloader.data.works.url, alt=preloader.data.works.alt)

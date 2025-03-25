@@ -71,17 +71,31 @@ const handleDefaults = async (client) => {
     const metadata = await client.getSingle('metadata')
     const navigation = await client.getSingle('naviga')
     const profile = await client.getSingle('profile')
+    const preloader = await client.getSingle('preloader')
     const socials = await client.getSingle('socials')
     const projects = await client.getAllByType('project')
 
     const home = await client.getSingle('home')
     const about = await client.getSingle('about')
 
-    console.log('nav.slug', navigation.data.links[0]['about'].slug)
+    // console.log('preloader', preloader)
+
+    // console.log('nav.slug', navigation.data.links[0]['about'].slug)
 
     // Foo
 
     const assets = []
+
+    assets.push(home.data.hero_image.url)
+    assets.push(profile.data.profile_picture.url)
+
+    projects.forEach(project => {
+        assets.push(project.data.image.url)
+    })
+
+    // console.log('home', home.data.hero_image.url)
+    // console.log('profile', profile.data.profile_picture.url)
+    // console.log('project', projects[0].image.url)
 
     // console.log("about slices", about.data.body)
 
@@ -91,6 +105,7 @@ const handleDefaults = async (client) => {
         navigation,
         profile,
         projects,
+        preloader,
         socials,
         home,
         about

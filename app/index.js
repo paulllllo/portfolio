@@ -4,7 +4,7 @@ import Home from 'pages/Home/index.js'
 import About from 'pages/About/index.js'
 import Detail from 'pages/Detail/index.js'
 
-// import Preloader from 'components/Preloader.js'
+import Preloader from 'components/Preloader.js'
 import Navigation from './components/Navigation.js'
 import Normalize from 'normalize-wheel'
 
@@ -16,7 +16,7 @@ class App {
 
         // this.createCanvas()
 
-        // this.createPreloader()
+        this.createPreloader()
 
         this.createPages()
 
@@ -30,10 +30,11 @@ class App {
         this.navigation = new Navigation({ template: this.template })
     }
 
-    // createPreloader () {
-    //     this.preloader = new Preloader({ canvas: this.canvas })
-    //     // this.preloader.once('completed', this.onPreloaded.bind(this))
-    // }
+    createPreloader () {
+        this.preloader = new Preloader()
+        // this.preloader = new Preloader({ canvas: this.canvas })
+        this.preloader.once('completed', this.onPreloaded.bind(this))
+    }
 
     // createCanvas () {
     //     this.canvas = new Canvas({ template: this.template })
@@ -58,13 +59,14 @@ class App {
 
     // Events
 
-    // onPreloaded () {
-    //     // this.canvas.onPreloaded()
-    //     this.preloader.destroy()
-    //     // console.log('this.page', this.page)
-    //     this.onResize()
-    //     this.page.show()
-    // }
+    onPreloaded () {
+        // this.canvas.onPreloaded()
+        this.preloader.destroy()
+        console.log('completed preloaded')
+        // console.log('this.page', this.page)
+        this.onResize()
+        this.page.show()
+    }
 
     onPopstate () {
         this.onPageChange({
